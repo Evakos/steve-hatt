@@ -68,7 +68,7 @@ export default function Home() {
           <div className="flex flex-col items-center gap-4 text-center md:flex-row md:text-left">
             <div className="flex-1">
               <h2 className="font-serif text-xl font-semibold text-navy">Check if we deliver to you</h2>
-              <p className="mt-1 text-sm text-text-light">Enter your postcode to see delivery options. Not in our zone? Click & collect is always available.</p>
+              <p className="mt-1 text-sm text-text-light">Enter your postcode to see delivery options. Not in our zone? Click & collect is always available. <Link href="/account/create" className="font-medium text-navy underline">Create an account</Link> for faster checkout.</p>
             </div>
             <div className="w-full max-w-xs md:w-auto">
               <PostcodeCheck />

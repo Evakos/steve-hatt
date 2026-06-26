@@ -18,7 +18,7 @@ const perks = [
 
 export default function CreateAccountPage() {
   return (
-    <main className="min-h-screen bg-cream">
+    <main className="flex flex-1 flex-col bg-cream">
       {/* Simple header */}
       <header className="border-b border-border/50 bg-white">
         <nav className="mx-auto flex h-20 max-w-6xl items-center justify-between px-6">
@@ -92,12 +92,11 @@ export default function CreateAccountPage() {
       </div>
 
       {/* Footer */}
-      <footer className="border-t border-border bg-navy">
+      <footer className="mt-auto border-t border-border bg-navy">
         <div className="mx-auto max-w-6xl px-6 py-10">
           <div className="flex items-center justify-between">
-            <div>
-              <span className="font-serif text-lg font-bold text-white">Steve Hatt</span>
-              <span className="ml-2 text-xs text-white/40">Fishmongers since 1895</span>
+            <div className="flex items-center gap-3">
+              <Image src="/logo-alt.svg" alt="Steve Hatt" width={120} height={50} className="h-8 w-auto" />
             </div>
             <p className="text-xs text-white/40">&copy; {new Date().getFullYear()} Steve Hatt Fishmongers</p>
           </div>
