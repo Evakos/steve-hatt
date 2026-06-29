@@ -87,14 +87,14 @@ export default function Home() {
             </div>
             <a href="#shop" className="text-sm text-navy hover:underline">View all →</a>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {products.slice(0, 8).map((p) => (
               <Link key={p.slug} href={`/shop/${p.slug}`} className="group border border-border bg-white p-4 transition-all hover:border-navy/30 hover:shadow-md" style={{ borderRadius: '5px' }}>
                 <div className="relative mb-3 h-40 overflow-hidden bg-sand" style={{ borderRadius: '3px' }}>
                   <Image src={p.image} alt={p.name} fill className="object-cover transition-transform group-hover:scale-105" />
                   <span className="absolute left-2 top-2 bg-lobster px-2 py-1 text-[10px] font-medium tracking-wide text-white uppercase" style={{ borderRadius: '2px' }}>{p.tag}</span>
                 </div>
-                <h3 className="font-serif text-base font-semibold text-navy">{p.name}</h3>
+                <h3 className="font-serif text-lg font-semibold text-navy">{p.name}</h3>
                 <p className="mt-1 min-h-[45px] text-sm text-text-light">{p.weight}</p>
                 <div className="mt-3 flex items-center justify-between">
                   <span className="text-base font-semibold text-navy">{p.price}</span>
@@ -203,7 +203,7 @@ export default function Home() {
                   <Image src={p.image} alt={p.name} fill className="object-cover transition-transform group-hover:scale-105" />
                   <span className="absolute left-2 top-2 bg-lobster px-2 py-1 text-[10px] font-medium tracking-wide text-white uppercase" style={{ borderRadius: '2px' }}>{p.tag}</span>
                 </div>
-                <h3 className="font-serif text-base font-semibold text-navy">{p.name}</h3>
+                <h3 className="font-serif text-lg font-semibold text-navy">{p.name}</h3>
                 <p className="mt-1 text-xs text-text-light">{p.weight}</p>
                 <div className="mt-3 flex items-center justify-between">
                   <span className="text-base font-semibold text-navy">{p.price}</span>

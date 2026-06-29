@@ -71,10 +71,10 @@ export default function AddToCart({ product }: Props) {
               </button>
               {prepTooltips[opt] && (
                 <div className="pointer-events-none absolute bottom-full left-1/2 z-50 mb-2 w-56 -translate-x-1/2 opacity-0 transition-opacity group-hover:opacity-100">
-                  <div className="bg-navy px-3 py-2 text-xs leading-relaxed text-white shadow-lg" style={{ borderRadius: "4px" }}>
+                  <div className="px-3 py-2 text-xs leading-relaxed text-navy" style={{ borderRadius: "4px", backgroundColor: "#EDE8E1", boxShadow: "0 2px 8px rgba(0,0,0,0.12)" }}>
                     {prepTooltips[opt]}
                   </div>
-                  <div className="mx-auto h-0 w-0 border-x-[6px] border-t-[6px] border-x-transparent border-t-navy" />
+                  <div className="mx-auto h-0 w-0 border-x-[6px] border-t-[6px] border-x-transparent" style={{ borderTopColor: "#EDE8E1" }} />
                 </div>
               )}
             </div>
