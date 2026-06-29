@@ -159,7 +159,7 @@ export const products: Product[] = [
     pricePerKg: 35.9,
     priceType: "per-kg",
     weight: "Approx. 200-300g per piece",
-    image: "/fish/hot-smoked-salmon.jpg",
+    image: "/hot-smoked-salmon.jpg",
     tag: "Popular",
     description: "Flaky, hot-smoked salmon chunks with a deep smoky flavour. Perfect for salads, pasta, or straight from the pack. A Steve Hatt staple.",
     preparation: ["Ready to eat"],

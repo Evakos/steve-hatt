@@ -213,7 +213,7 @@ export default function CheckoutPage() {
             </h1>
             <p className="mt-3 text-sm text-text-light">
               {confirmedOrder.itemCount} item{confirmedOrder.itemCount > 1 ? "s" : ""} ·{" "}
-              {confirmedOrder.slot.type === "delivery" ? "Delivery" : "Collection"} · ~£{confirmedOrder.total.toFixed(2)}
+              {confirmedOrder.slot.type === "delivery" ? "Delivery" : "Collection"} · £{confirmedOrder.total.toFixed(2)}
             </p>
             <div className="mt-6 border border-border bg-white p-5 text-left" style={{ borderRadius: "5px" }}>
               <div className="flex items-center gap-2 text-sm font-medium text-navy">
@@ -583,8 +583,8 @@ export default function CheckoutPage() {
                   >
                     <Lock className="h-4 w-4" />
                     {isChristmasOrder
-                      ? `Authorise Pre-Order · ~£${(estimatedTotal + deliveryCost).toFixed(2)}`
-                      : `Pay ~£${(estimatedTotal + deliveryCost).toFixed(2)}`}
+                      ? `Authorise Pre-Order · £${(estimatedTotal + deliveryCost).toFixed(2)}`
+                      : `Pay £${(estimatedTotal + deliveryCost).toFixed(2)}`}
                   </button>
 
                   <div className="mt-3 flex items-center justify-center gap-1.5 text-[11px] text-text-light">
@@ -601,12 +601,7 @@ export default function CheckoutPage() {
                 <h2 className="font-serif text-lg font-semibold text-navy">Order Summary</h2>
 
                 <div className="mt-4 space-y-3">
-                  {items.map((item, i) => {
-                    const est = item.product.pricePerKg > 0
-                      ? item.product.pricePerKg * item.weight
-                      : parseFloat(item.product.price.replace(/[^0-9.]/g, "")) * item.quantity;
-
-                    return (
+                  {items.map((item, i) => (
                       <div key={i} className="flex items-center gap-3">
                         <div className="relative h-10 w-10 shrink-0 overflow-hidden bg-sand" style={{ borderRadius: "3px" }}>
                           <Image src={item.product.image} alt={item.product.name} fill className="object-cover" />
@@ -615,16 +610,15 @@ export default function CheckoutPage() {
                           <p className="font-medium text-navy">{item.product.name}</p>
                           <p className="text-text-light">{item.preparation}</p>
                         </div>
-                        <span className="text-xs font-medium text-navy">~£{est.toFixed(2)}</span>
+                        <span className="text-xs font-medium text-navy">£{item.unitPrice.toFixed(2)}</span>
                       </div>
-                    );
-                  })}
+                  ))}
                 </div>
 
                 <div className="mt-4 space-y-2 border-t border-border pt-4 text-sm">
                   <div className="flex justify-between text-text-light">
                     <span>Subtotal</span>
-                    <span>~£{estimatedTotal.toFixed(2)}</span>
+                    <span>£{estimatedTotal.toFixed(2)}</span>
                   </div>
                   <div className="flex justify-between text-text-light">
                     <span>{slotType === "delivery" ? "Delivery" : slotType === "collection" ? "Collection" : "Fulfilment"}</span>
@@ -633,7 +627,7 @@ export default function CheckoutPage() {
                   <div className="border-t border-border pt-2">
                     <div className="flex justify-between font-semibold text-navy">
                       <span>Estimated total</span>
-                      <span>~£{(estimatedTotal + deliveryCost).toFixed(2)}</span>
+                      <span>£{(estimatedTotal + deliveryCost).toFixed(2)}</span>
                     </div>
                   </div>
                 </div>

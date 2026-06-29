@@ -8,7 +8,7 @@ import Header from "@/components/header";
 import AnnouncementBanner from "@/components/announcement-banner";
 
 export default function CartPage() {
-  const { items, removeItem, clearCart, estimatedTotal } = useCart();
+  const { items, removeItem, updateQuantity, clearCart, estimatedTotal } = useCart();
 
   return (
     <main className="flex flex-1 flex-col">
@@ -43,11 +43,6 @@ export default function CartPage() {
               {/* Items list */}
               <div className="space-y-4 lg:col-span-2">
                 {items.map((item, i) => {
-                  const est =
-                    item.product.pricePerKg > 0
-                      ? item.product.pricePerKg * item.weight
-                      : parseFloat(item.product.price.replace(/[^0-9.]/g, "")) * item.quantity;
-
                   return (
                     <div
                       key={`${item.product.slug}-${i}`}
@@ -85,9 +80,25 @@ export default function CartPage() {
                           </p>
                         </div>
                         <div className="mt-2 flex items-end justify-between">
-                          <p className="text-xs text-text-light">{item.product.weight}</p>
+                          <div className="flex items-center border border-border bg-cream" style={{ borderRadius: "3px" }}>
+                            <button
+                              onClick={() => updateQuantity(i, item.quantity - 1)}
+                              className="px-2 py-1 text-xs text-navy transition-colors hover:bg-sand"
+                            >
+                              -
+                            </button>
+                            <span className="min-w-7 px-1 py-1 text-center text-xs font-medium text-navy">
+                              {item.quantity}
+                            </span>
+                            <button
+                              onClick={() => updateQuantity(i, item.quantity + 1)}
+                              className="px-2 py-1 text-xs text-navy transition-colors hover:bg-sand"
+                            >
+                              +
+                            </button>
+                          </div>
                           <span className="text-sm font-semibold text-navy">
-                            ~£{est.toFixed(2)}
+                            £{item.unitPrice.toFixed(2)}
                           </span>
                         </div>
                       </div>
@@ -116,7 +127,7 @@ export default function CartPage() {
                   <div className="mt-4 space-y-3 text-sm">
                     <div className="flex justify-between text-text-light">
                       <span>Estimated subtotal</span>
-                      <span>~£{estimatedTotal.toFixed(2)}</span>
+                      <span>£{estimatedTotal.toFixed(2)}</span>
                     </div>
                     <div className="flex justify-between text-text-light">
                       <span>Delivery</span>
@@ -125,7 +136,7 @@ export default function CartPage() {
                     <div className="border-t border-border pt-3">
                       <div className="flex justify-between font-semibold text-navy">
                         <span>Estimated total</span>
-                        <span>~£{estimatedTotal.toFixed(2)}</span>
+                        <span>£{estimatedTotal.toFixed(2)}</span>
                       </div>
                     </div>
                   </div>

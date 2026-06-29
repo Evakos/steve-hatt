@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { User, Menu, X } from "lucide-react";
 import CartButton from "./cart-button";
+import MiniCart from "./mini-cart";
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -31,7 +32,10 @@ export default function Header() {
             Create Account
           </Link>
 
-          <CartButton />
+          <div className="relative">
+            <CartButton />
+            <MiniCart />
+          </div>
 
           <Link
             href="/#shop"
@@ -67,7 +71,10 @@ export default function Header() {
               <User className="h-4 w-4" />
               Create Account
             </Link>
-            <CartButton />
+            <div className="relative">
+              <CartButton />
+              <MiniCart />
+            </div>
             <Link
               href="/#shop"
               className="inline-block bg-lobster px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-lobster/90"
